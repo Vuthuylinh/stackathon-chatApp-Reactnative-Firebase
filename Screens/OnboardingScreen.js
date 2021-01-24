@@ -10,12 +10,20 @@ const Skip =({...props})=>{
     </TouchableOpacity>
   )
 }
+const Next =({...props})=>{
+  return(
+    <TouchableOpacity {...props}>
+       <Text>Next</Text>
+    </TouchableOpacity>
+  )
+}
 
 const OnboardingScreen = ({navigation}) => {
 
   return (
     <Onboarding
     SkipButtonComponent={Skip}
+    NextButtonComponent={Next}
     onSkip ={()=> navigation.replace("Login")}
     onDone ={()=> navigation.navigate("Login")}
 
