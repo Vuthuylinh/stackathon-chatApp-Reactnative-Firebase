@@ -1,21 +1,22 @@
 
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {NavigationContainer} from "@react-navigation/native"
-import {createStackNavigator} from "@react-navigation/stack"
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
 
-import OnboardingScreen from "./Screens/OnboardingScreen"
+import OnboardingScreen from './Screens/OnboardingScreen'
+import LoginScreen from './Screens/LoginScreen'
+
 const AppStack = createStackNavigator()
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
-        <AppStack.Navigator headerMode="none">
-          <AppStack.Screen name ="Onboarding" component={OnboardingScreen}/>
-          {/* <AppStack.Screen/> */}
-        </AppStack.Navigator>
+      <AppStack.Navigator headerMode="none">
+        <AppStack.Screen name="Login" component={LoginScreen} />
+        <AppStack.Screen name="Onboarding" component={OnboardingScreen} />
+      </AppStack.Navigator>
     </NavigationContainer>
-
   );
 }
 
@@ -27,3 +28,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default App
