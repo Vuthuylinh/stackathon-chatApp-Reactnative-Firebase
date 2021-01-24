@@ -3,9 +3,9 @@ import { View, Text, Button, Image, StyleSheet, TouchableOpacity } from 'react-n
 
 import Onboarding from 'react-native-onboarding-swiper';
 
-const Skip =()=>{
+const Skip =({...props})=>{
   return(
-    <TouchableOpacity>
+    <TouchableOpacity {...props}>
        <Text>Skip</Text>
     </TouchableOpacity>
   )
