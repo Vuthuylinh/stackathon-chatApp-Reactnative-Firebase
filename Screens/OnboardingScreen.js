@@ -3,29 +3,49 @@ import { View, Text, Button, Image, StyleSheet, TouchableOpacity } from 'react-n
 
 import Onboarding from 'react-native-onboarding-swiper';
 
-const Skip =({...props})=>{
-  return(
+const Skip = ({ ...props }) => {
+  return (
     <TouchableOpacity {...props}>
-       <Text>Skip</Text>
+      <Text>Skip</Text>
     </TouchableOpacity>
   )
 }
-const Next =({...props})=>{
-  return(
+const Next = ({ ...props }) => {
+  return (
     <TouchableOpacity {...props}>
-       <Text>Next</Text>
+      <Text>Next</Text>
+    </TouchableOpacity>
+  )
+}
+const Done = ({ ...props }) => {
+  return (
+    <TouchableOpacity {...props}>
+      <Text>Done</Text>
     </TouchableOpacity>
   )
 }
 
-const OnboardingScreen = ({navigation}) => {
+const Dots = (selected) => {
+  backgroundColor = selected ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.3)';
+  return (
+    <View style={{
+      width:6,
+      height:6,
+      marginHorizontal: 3,
+      backgroundColor
+    }} />
+  )
+}
+const OnboardingScreen = ({ navigation }) => {
 
   return (
     <Onboarding
-    SkipButtonComponent={Skip}
-    NextButtonComponent={Next}
-    onSkip ={()=> navigation.replace("Login")}
-    onDone ={()=> navigation.navigate("Login")}
+      SkipButtonComponent={Skip}
+      NextButtonComponent={Next}
+      DoneButtonComponent={Done}
+      DotComponent ={Dots}
+      onSkip={() => navigation.replace("Login")}
+      onDone={() => navigation.navigate("Login")}
 
       pages={[
         {
