@@ -13,8 +13,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <AppStack.Navigator headerMode="none">
-        <AppStack.Screen name="Login" component={LoginScreen} />
         <AppStack.Screen name="Onboarding" component={OnboardingScreen} />
+        <AppStack.Screen name="Login" component={LoginScreen} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
