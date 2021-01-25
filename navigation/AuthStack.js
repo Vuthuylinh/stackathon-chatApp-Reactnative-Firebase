@@ -13,21 +13,28 @@ const Stack = createStackNavigator()
 const AuthStack = () => {
   const [isFirstLaunch,setIsFirstLaunch] = useState(null);
   let routeName;
+
+
   useEffect(() => {
-    AsyncStorage.getItem('alreadyLaunched').then(value => {
-      if(value == null){
-        AsyncStorage.setItem('alreadyLaunched','true')
-        setIsFirstLaunch(true)
-      }else{
-        setIsFirstLaunch(false)
-      }
-    })
+      AsyncStorage.getItem('alreadyLaunched').then(value => {
+        if(value == null){
+          AsyncStorage.setItem('alreadyLaunched','true')
+           setIsFirstLaunch(true)
+        }else{
+           setIsFirstLaunch(false)
+        }
+      })
   },[])
 
-  if(isFirstLaunch === null){
-    return <Text> Loading...</Text>
+
+  if(isFirstLaunch ===null){
+    return null
   }else if(isFirstLaunch === true){
-    return(
+    routeName ="Onboarding"
+  }else{
+    routeName ="Login"
+  }
+  return(
         <Stack.Navigator initialRouteName={routeName}>
             <Stack.Screen
             name="Onboarding"
@@ -45,13 +52,10 @@ const AuthStack = () => {
             />
         </Stack.Navigator>
     )
-  }else{
-    return
-      <LoginScreen/>
-  }
-
 
 }
+
+export default AuthStack
 
 const styles = StyleSheet.create({
   container: {
@@ -61,4 +65,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default AuthStack
+
