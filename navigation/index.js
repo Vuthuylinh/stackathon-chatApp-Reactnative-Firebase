@@ -8,4 +8,4 @@ const Providers =()=>{
   )
 }
 
-export default Routes
+export default Providers

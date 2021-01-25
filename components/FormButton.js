@@ -1,17 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { windowHeight, windowWidth } from '../utils/Dimentions'
-const FormButton = ({
-  buttonTitle,
-  btnType,
-  color,
-  backgroundColor,
-  ...rest }) => {
-  let bgColor = backgroundColor;
+import React from 'react'
+import { StyleSheet, Text,View, TouchableOpacity } from 'react-native'
+import { windowHeight } from '../utils/Dimentions'
+const FormButton = ({ buttonTitle,btnType,color, ...rest }) => {
   return (
     <TouchableOpacity
-    style={[styles.buttonContainer, {backgroundColor: bgColor}]}{...rest}>
+    style={styles.buttonContainer}{...rest}>
       <View style={styles.iconWrapper}>
-         <FontAwsome style={styles.icon} name={btnType} size={22} color={color}/>
       </View>
       <View style={styles.btnTxtWrapper}>
          <Text style={[styles.buttonText, {color:color}]}>{buttonTitle}</Text>
@@ -48,8 +42,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: 'Lato-Regular',
+    fontWeight: 'bold'
   },
 });
 

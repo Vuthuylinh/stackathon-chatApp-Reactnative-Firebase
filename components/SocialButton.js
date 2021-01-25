@@ -7,7 +7,7 @@ const SocialButton =()=> {
   return (
     <TouchableOpacity>
       <View>
-      <Text></Text>
+      <Text>Social button</Text>
     </View>
     </TouchableOpacity>
 
