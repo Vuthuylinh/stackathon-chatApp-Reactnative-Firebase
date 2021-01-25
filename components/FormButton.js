@@ -6,7 +6,6 @@ const FormButton = ({buttonTitle, ...rest}) => {
       <Text style={styles.buttonText}></Text>
     </TouchableOpacity>
 
-
   )
 }
 
