@@ -1,16 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text,View, TouchableOpacity } from 'react-native'
 import { windowHeight } from '../utils/Dimentions'
-const FormButton = ({ buttonTitle,btnType,color, ...rest }) => {
+const FormButton = ({ buttonTitle, ...rest }) => {
   return (
     <TouchableOpacity
-    style={styles.buttonContainer}{...rest}>
-      <View style={styles.iconWrapper}>
-      </View>
-      <View style={styles.btnTxtWrapper}>
-         <Text style={[styles.buttonText, {color:color}]}>{buttonTitle}</Text>
-      </View>
-
+     style={styles.buttonContainer} {...rest}>
+       <Text style={styles.buttonText}>{buttonTitle}</Text>
     </TouchableOpacity>
 
   )
@@ -23,26 +18,15 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     height: windowHeight / 15,
+    backgroundColor: '#2e64e5',
     padding: 10,
-    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 3,
-  },
-  iconWrapper: {
-    width: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  icon: {
-    fontWeight: 'bold',
-  },
-  btnTxtWrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   buttonText: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#ffffff',
   },
 });
-

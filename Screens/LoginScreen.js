@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { View, Text, Button, Image, StyleSheet } from 'react-native'
+import { View, Text, Button, Image, StyleSheet , TouchableOpacity} from 'react-native'
 import FormInput from '../components/FormInput'
 import FormButton from '../components/FormButton'
 import SocialButton from '../components/SocialButton'
@@ -17,7 +17,7 @@ const LoginScreen = ({ navigation }) => {
       // source={require('../assets/logo2.png')}
       // style={styles.logo}
       />
-      <Text style={styles.text}> ReactNative FireBase Chat </Text>
+      <Text style={styles.text}> RNFireBase ChatNote </Text>
       <FormInput
         lableValue={email}
         onChangeText={(inputEmail) => setEmail(inputEmail)}
@@ -34,7 +34,33 @@ const LoginScreen = ({ navigation }) => {
         iconType="lock"
         secureTextentry={true}
       />
-      <FormButton />
+      <FormButton
+        buttonTitle="Sign in"
+        onPress={()=>alert("Sign in clicked!")}
+      />
+
+      <TouchableOpacity style={styles.forgotButton} onPress={()=>{}}>
+        <Text style={styles.navButtonText}>Forgot password? </Text>
+      </TouchableOpacity>
+
+      <SocialButton
+        buttonTitile="Sign in with Google"
+        btnType="google"
+        color="red"
+        backgroundColor="#f5e7ea"
+        onPress={()=>{}}
+      />
+      <SocialButton
+        buttonTitile="Sign in with Facebook"
+        btnType="facebook"
+        color="blue"
+        backgroundColor="#e6eaf5"
+        onPress={()=>{}}
+      />
+
+      <TouchableOpacity style={styles.forgotButton} onPress={()=>{}}>
+        <Text style={styles.navButtonText}>Create a new account</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -54,6 +80,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   text: {
+    justifyContent:'center',
     fontSize: 28,
     marginBottom: 10,
     color: '#051d5f',

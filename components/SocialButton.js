@@ -3,12 +3,23 @@ import { Text, TouchableOpacity, View, StyleSheet} from 'react-native'
 import {windowHeight, windowWidth} from '../utils/Dimentions';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const SocialButton =()=> {
+const SocialButton =({
+  buttonTitile,
+  btnType,
+  color,
+  backgroundColor, ...rest
+})=> {
+  let bgColor = backgroundColor;
   return (
-    <TouchableOpacity>
-      <View>
-      <Text>Social button</Text>
-    </View>
+    <TouchableOpacity
+     style={[styles.buttonContainer, {backgroundColor:bgColor}]}
+     {...rest} >
+        <View style={styles.iconWrapper}>
+          <FontAwesome name ={btnType} style={styles.icon} size={22} color ={color}/>
+        </View>
+        <View style ={styles.btnTxtWrapper}>
+          <Text style={[styles.buttonText,{color: color}]}> {buttonTitile}</Text>
+        </View>
     </TouchableOpacity>
 
   )
@@ -16,44 +27,29 @@ const SocialButton =()=> {
 export default SocialButton
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    marginTop: 5,
-    marginBottom: 10,
+  buttonContainer: {
+    marginTop: 10,
     width: '100%',
     height: windowHeight / 15,
-    borderColor: '#ccc',
-    borderRadius: 3,
-    borderWidth: 1,
+    padding: 10,
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    borderRadius: 3,
   },
-  iconStyle: {
-    padding: 10,
-    height: '100%',
+  iconWrapper: {
+    width: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRightColor: '#ccc',
-    borderRightWidth: 1,
-    width: 50,
   },
-  input: {
-    padding: 10,
+  icon: {
+    fontWeight: 'bold',
+  },
+  btnTxtWrapper: {
     flex: 1,
-    fontSize: 16,
-    fontFamily: 'Lato-Regular',
-    color: '#333',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  inputField: {
-    padding: 10,
-    marginTop: 5,
-    marginBottom: 10,
-    width: windowWidth / 1.5,
-    height: windowHeight / 15,
-    fontSize: 16,
-    borderRadius: 8,
-    borderWidth: 1,
+  buttonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
