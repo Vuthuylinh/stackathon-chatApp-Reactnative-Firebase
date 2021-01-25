@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 import OnboardingScreen from '../screens/OnboardingScreen'
 import LoginScreen from '../screens/LoginScreen'
+import SignupScreen from '../screens/SignupScreen'
 
 const Stack = createStackNavigator()
 
@@ -28,17 +29,20 @@ const AuthStack = () => {
   }else if(isFirstLaunch === true){
     return(
         <Stack.Navigator initialRouteName={routeName}>
-          <Stack.Screen
-          name="Onboarding"
-          component={OnboardingScreen}
-          options={{header:()=>null}}
-          />
-          <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{header:()=>null}}
-          />
-
+            <Stack.Screen
+            name="Onboarding"
+            component={OnboardingScreen}
+            options={{header:()=>null}}
+            />
+            <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{header:()=>null}}
+            />
+            <Stack.Screen
+            name="Signup"
+            component ={SignupScreen}
+            />
         </Stack.Navigator>
     )
   }else{
