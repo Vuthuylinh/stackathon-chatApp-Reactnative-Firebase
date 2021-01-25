@@ -4,11 +4,10 @@ import FormInput from '../components/FormInput'
 import FormButton from '../components/FormButton'
 import SocialButton from '../components/SocialButton'
 
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
 
   return (
     <View style={styles.container}>
@@ -30,20 +29,31 @@ const SignupScreen = ({ navigation }) => {
         iconType="lock"
         secureTextentry={true}
       />
+
+      <FormInput
+        lableValue={confirmPassword}
+        onChangeText={(inputPassword) => setPassword(inputPassword)}
+        placeholderText="Confirm Password"
+        iconType="lock"
+        secureTextentry={true}
+      />
+
       <FormButton
         buttonTitle="Sign Up"
         onPress={()=>alert("Sign up clicked!")}
       />
+
       <View style={styles.textPrivate}>
         <Text style={styles.color_textPrivate} > By registering, you confirm that you accept our </Text>
         <TouchableOpacity onPress={()=>{alert("Go to Trems of service page")}}>
           <Text style={[styles.color_textPrivate, {color:"#e88832"}]}>Terms of service</Text>
         </TouchableOpacity>
-        <Text style={styles.color_textPrivate} >and</Text>
+        <Text style={styles.color_textPrivate} > and </Text>
         <TouchableOpacity onPress={()=>{alert("Go to Privacy Policy page")}}>
           <Text style={[styles.color_textPrivate, {color:"#e88832"}]}>Privacy Policy</Text>
         </TouchableOpacity>
       </View>
+
       <SocialButton
         buttonTitile="Sign in with Google"
         btnType="google"
@@ -58,6 +68,12 @@ const SignupScreen = ({ navigation }) => {
         backgroundColor="#e6eaf5"
         onPress={()=>{}}
       />
+      <TouchableOpacity
+        style={styles.navButton}
+        onPress={()=>navigation.navigate("Login")}>
+        <Text style={styles.navButtonText}> Have account already? Sign in
+        </Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -100,7 +116,6 @@ const styles = StyleSheet.create({
   color_textPrivate: {
     fontSize: 13,
     fontWeight: '400',
-    fontFamily: 'Lato-Regular',
     color: 'grey',
   },
 });
