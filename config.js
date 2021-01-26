@@ -4,6 +4,7 @@ export const firebaseConfig = {
   projectId: "chat-noteapp",
   storageBucket: "chat-noteapp.appspot.com",
   messagingSenderId: "761084735712",
-  appId: "1:761084735712:web:fd8d4fa22d19e2f9c66085"
+  appId: "1:761084735712:web:fd8d4fa22d19e2f9c66085",
+  databaseURL: 'https://chat-noteapp-default-rtdb.firebaseio.com/'
 };
 
