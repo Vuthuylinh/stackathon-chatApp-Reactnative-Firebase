@@ -3,12 +3,33 @@ import { View, Text, Button, Image, StyleSheet , TouchableOpacity} from 'react-n
 import FormInput from '../components/FormInput'
 import FormButton from '../components/FormButton'
 import SocialButton from '../components/SocialButton'
+import * as Google from 'expo-google-app-auth';
 
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  signInWithGoogleAsync =  async () =>{
+    try {
+      const result = await Google.logInAsync({
+        // androidClientId: YOUR_CLIENT_ID_HERE,
+        behavior:'web',
+        iosClientId: '761084735712-o1v9rel4i4prl8m7srpblb67f5hm6p7n.apps.googleusercontent.com',
+        scopes: ['profile', 'email'],
+      });
+
+  if (result.type === 'success') {
+        return result.accessToken;
+      } else {
+        return { cancelled: true };
+      }
+    } catch (e) {
+      return { error: true };
+    }
+  }
+
+  
   return (
     <View style={styles.container}>
       <Image
@@ -48,15 +69,15 @@ const LoginScreen = ({ navigation }) => {
         btnType="google"
         color="red"
         backgroundColor="#f5e7ea"
-        onPress={()=>{}}
+        onPress={()=>this.signInWithGoogleAsync()}
       />
-      <SocialButton
+      {/* <SocialButton
         buttonTitile="Sign in with Facebook"
         btnType="facebook"
         color="blue"
         backgroundColor="#e6eaf5"
         onPress={()=>{}}
-      />
+      /> */}
 
       <TouchableOpacity
        style={styles.navButton}

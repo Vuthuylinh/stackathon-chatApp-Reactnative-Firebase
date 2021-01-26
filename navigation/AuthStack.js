@@ -10,6 +10,11 @@ import SignupScreen from '../screens/SignupScreen'
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+import firebase from 'firebase'
+import {firebaseConfig} from '../config'
+firebase.initializeApp(firebaseConfig);
+
+
 const Stack = createStackNavigator()
 
 const AuthStack = () => {
